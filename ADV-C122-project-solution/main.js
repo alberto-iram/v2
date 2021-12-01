@@ -21,7 +21,7 @@ var recognition = new SpeechRecognition();
 
 function start()
 {
-  document.getElementById("status").innerHTML = "System is listening please speak";  
+  document.getElementById("status").innerHTML = "El sistema está escuchando. Por favor, habla.";  
   recognition.start();
 } 
  
@@ -31,16 +31,16 @@ recognition.onresult = function(event) {
 
  content = event.results[0][0].transcript;
 
-    document.getElementById("status").innerHTML = "The speech has been recognized: " + content; 
+    document.getElementById("status").innerHTML = "La voz se reconoció como: " + content; 
     to_number = Number(content);
     if(Number.isInteger(to_number))
     {
-      document.getElementById("status").innerHTML = "Started drawing apple "; 
+      document.getElementById("status").innerHTML = "Se empezó a dibujar una manzana "; 
       draw_apple = "set";
     }
     else
     {
-      document.getElementById("status").innerHTML = "The speech has not recognized a number "; 
+      document.getElementById("status").innerHTML = "No se reconoció un número "; 
     }
 
 }
@@ -62,8 +62,8 @@ function draw() {
       y = Math.floor(Math.random() * 400);
       image(apple, x, y, 50, 50);
     }
-    document.getElementById("status").innerHTML = to_number + " Apples drawn";
-    speak_data = to_number + "Apples drawn";
+    document.getElementById("status").innerHTML = to_number + " Se dibujaron manzanas";
+    speak_data = to_number + "Se dibujaron manzanas";
     speak();
     draw_apple = "";
   }
